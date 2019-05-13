@@ -1,0 +1,22 @@
+sudo: required
+
+language: node_js
+
+services:
+  - docker
+
+node_js:
+  - "11"
+
+notifications:
+  email:
+    - starinje@gmail.com
+
+before_script:
+  - docker build --no-cache -t score-calculation-service .
+
+deploy:
+  provider: script
+  script: bash deploy.sh
+  on:
+    branch: master
