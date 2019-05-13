@@ -9,3 +9,5 @@ docker tag score-calculation-service ${DOCKER_REGISTRY}/score-calculation-servic
 echo "pushing docker image"
 docker push ${DOCKER_REGISTRY}/score-calculation-service:${VERSION}
 docker push ${DOCKER_REGISTRY}/score-calculation-service:latest
+
+
