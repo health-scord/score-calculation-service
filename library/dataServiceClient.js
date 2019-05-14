@@ -1,5 +1,5 @@
 const Promise = require("bluebird");
-
+const rp = require("request-promise")
 
 class dataServiceClient {
     constructor(options){
@@ -13,19 +13,38 @@ class dataServiceClient {
     async getAccounts(){
         try{
 
-            let accounts = [
-                {
-                    firstName: 'Mike',
-                    lastName: 'Beele'
+          
+
+            let options = {
+                uri: 'localhost:5000/accounts',
+                qs: {},
+                headers: {
+                    'User-Agent': 'Request-Promise'
                 },
-                {
-                    firstName: 'Danny',
-                    lastName: 'Green'
-                }, {
-                    firstName: 'Julia',
-                    lastName: 'Roberts'
-                }
-            ]
+                json: true
+            };
+             
+
+            let accounts = "default"
+            try{            
+                accounts = await rp(options)
+            } catch(error){
+                console.log(error)
+            }
+                
+            // let accounts = [
+            //     {
+            //         firstName: 'Mike',
+            //         lastName: 'Beele'
+            //     },
+            //     {
+            //         firstName: 'Danny',
+            //         lastName: 'Green'
+            //     }, {
+            //         firstName: 'Julia',
+            //         lastName: 'Roberts'
+            //     }
+            // ]
 
             return Promise.resolve(accounts)
 

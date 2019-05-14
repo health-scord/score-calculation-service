@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/healthkarma/score-calculation-service#readme",
   "dependencies": {
-    "bluebird": "^3.5.4"
+    "bluebird": "^3.5.4",
+    "request-promise": "^4.2.4"
   }
 }
