@@ -16,7 +16,7 @@ class dataServiceClient {
           
 
             let options = {
-                uri: 'localhost:5000/accounts',
+                uri: 'http://localhost:5000/accounts',
                 qs: {},
                 headers: {
                     'User-Agent': 'Request-Promise'
