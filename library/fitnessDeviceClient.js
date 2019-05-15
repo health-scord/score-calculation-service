@@ -19,8 +19,10 @@ class fitnessDeviceClient {
 
         // handle the callback from the Fitbit authorization flow
         this.authApi.get("/callback", (req, res) => {
+
+            console.log('callbackroute is working!!!')
             // exchange the authorization code we just received for an access token
-            this.webApiClient.getAccessToken(req.query.code, 'YOUR_CALLBACK_URL').then(result => {
+            this.webApiClient.getAccessToken(req.query.code, 'https://157.230.2.203:3000/callback').then(result => {
                 // use the access token to fetch the user's profile information
                 this.webApiClient.get("/profile.json", result.access_token).then(results => {
                     res.send(results[0]);
@@ -33,7 +35,7 @@ class fitnessDeviceClient {
         });
 
         // launch the server
-        this.authApi.listen(3000);
+        this.authApi.listen(443);
 
     }
 
