@@ -22,7 +22,7 @@ class fitnessDeviceClient {
 
             console.log('callbackroute is working!!!')
             // exchange the authorization code we just received for an access token
-            this.webApiClient.getAccessToken(req.query.code, 'https://157.230.2.203:3000/callback').then(result => {
+            this.webApiClient.getAccessToken(req.query.code, 'https://157.230.2.203:443/callback').then(result => {
                 // use the access token to fetch the user's profile information
                 this.webApiClient.get("/profile.json", result.access_token).then(results => {
                     res.send(results[0]);
@@ -62,7 +62,9 @@ class fitnessDeviceClient {
 
     async authenticate(account){
         try{
-            let authResponse = this.webApiClient.getAuthorizeUrl('activity heartrate location nutrition profile settings sleep social weight', 'https://157.230.2.203:3000/callback')
+            console.log('calling authenticate method')
+            let authResponse = this.webApiClient.getAuthorizeUrl('activity heartrate location nutrition profile settings sleep social weight', 'https://157.230.2.203:443/callback')
+            console.log(`got an authResponse:`)
             console.log(authResponse)
             return Promise.resolve(true)
         } catch(error){
