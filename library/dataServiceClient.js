@@ -12,39 +12,35 @@ class dataServiceClient {
 
     async getAccounts(){
         try{
-
-          
-
-            let options = {
-                uri: 'http://localhost:5000/accounts',
-                qs: {},
-                headers: {
-                    'User-Agent': 'Request-Promise'
-                },
-                json: true
-            };
-             
-
-            let accounts = "default"
-            try{            
-                accounts = await rp(options)
-            } catch(error){
-                console.log(error)
-            }
-                
-            // let accounts = [
-            //     {
-            //         firstName: 'Mike',
-            //         lastName: 'Beele'
+            // let options = {
+            //     uri: 'http://localhost:5000/accounts',
+            //     qs: {},
+            //     headers: {
+            //         'User-Agent': 'Request-Promise'
             //     },
-            //     {
-            //         firstName: 'Danny',
-            //         lastName: 'Green'
-            //     }, {
-            //         firstName: 'Julia',
-            //         lastName: 'Roberts'
-            //     }
-            // ]
+            //     json: true
+            // };
+             
+            // let accounts = "default"
+            // try{            
+            //     accounts = await rp(options)
+            // } catch(error){
+            //     console.log(error)
+            // }
+                
+            let accounts = [
+                {
+                    firstName: 'Mike',
+                    lastName: 'Beele'
+                },
+                {
+                    firstName: 'Danny',
+                    lastName: 'Green'
+                }, {
+                    firstName: 'Julia',
+                    lastName: 'Roberts'
+                }
+            ]
 
             return Promise.resolve(accounts)
 
@@ -56,6 +52,9 @@ class dataServiceClient {
 
     async updateHealthScore(account, healthScore){
         try{
+
+            // code here to post to accounts with health score for given account id
+
             return Promise.resolve(true)
         } catch(error){
             console.log(error)
