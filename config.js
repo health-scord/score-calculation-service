@@ -7,9 +7,9 @@ let config = {
   runInterval: process.env.RUN_INTERVAL
     ? process.env.RUN_INTERVAL
     : defaults.RUN_INTERVAL,
-  dataServiceEndpoint: process.env.RUN_INTERVAL
-    ? process.env.RUN_INTERVAL
-    : defaults.RUN_INTERVAL
+  dataServiceEndpoint: process.env.DATA_SERVICE_ENDPOINT
+    ? process.env.DATA_SERVICE_ENDPOINT
+    : defaults.DATA_SERVICE_ENDPOINT
 };
 
 module.exports = config;
