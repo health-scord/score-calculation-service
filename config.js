@@ -1,5 +1,5 @@
 const defaults = {
-  RUN_INTERVAL: 3000,
+  RUN_INTERVAL: 30000,
   DATA_SERVICE_ENDPOINT: `http://68.183.100.145:5000`
 };
 
