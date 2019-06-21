@@ -22,7 +22,7 @@ const main = async () => {
         account
       );
 
-      console.log(fitnessDeviceData);
+      //   console.log(fitnessDeviceData);
 
       //   console.log(
       //     `calculating health score for ${account.firstName} ${
