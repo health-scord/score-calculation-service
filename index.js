@@ -16,32 +16,36 @@ const main = async () => {
     console.log(`Fetched ${accounts.length} accounts from data-service:`);
     console.log(accounts);
 
-    // for (let account of accounts) {
-    //   console.log("");
-    //   let fitnessDeviceData = await fitnessDeviceClient.getData(account);
+    for (let account of accounts) {
+      console.log("");
+      let fitnessDeviceData = await fitnessDeviceClient.getProfileDetails(
+        account
+      );
 
-    //   console.log(
-    //     `calculating health score for ${account.firstName} ${
-    //       account.lastName
-    //     } from fitness data`
-    //   );
-    //   let healthScore = await healthScoreServiceClient.getHealthScore(
-    //     fitnessDeviceData
-    //   );
+      console.log(fitnessDeviceData);
 
-    //   console.log(
-    //     `user ${account.firstName} ${
-    //       account.lastName
-    //     } has a calculated health score of ${healthScore}`
-    //   );
-    //   console.log(
-    //     `posting ${account.firstName} ${
-    //       account.lastName
-    //     }'s data to data-service`
-    //   );
+      //   console.log(
+      //     `calculating health score for ${account.firstName} ${
+      //       account.lastName
+      //     } from fitness data`
+      //   );
+      //   let healthScore = await healthScoreServiceClient.getHealthScore(
+      //     fitnessDeviceData
+      //   );
 
-    //   await dataServiceClient.updateHealthScore(account, healthScore);
-    // }
+      //   console.log(
+      //     `user ${account.firstName} ${
+      //       account.lastName
+      //     } has a calculated health score of ${healthScore}`
+      //   );
+      //   console.log(
+      //     `posting ${account.firstName} ${
+      //       account.lastName
+      //     }'s data to data-service`
+      //   );
+
+      //   await dataServiceClient.updateHealthScore(account, healthScore);
+    }
   } catch (error) {
     console.log(error);
   } finally {
