@@ -14,7 +14,6 @@ const main = async () => {
     let accounts = await dataServiceClient.getAccounts();
 
     console.log(`Fetched ${accounts.length} accounts from data-service:`);
-    console.log(accounts);
 
     for (let account of accounts) {
       console.log("");
