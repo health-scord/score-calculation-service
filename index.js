@@ -17,33 +17,29 @@ const main = async () => {
 
     for (let account of accounts) {
       console.log("");
-      let fitnessDeviceData = await fitnessDeviceClient.getProfileDetails(
-        account
+      let data = await fitnessDeviceClient.getData(account);
+
+      console.log(data);
+
+      console.log(
+        `calculating health score for ${account.firstName} ${
+          account.lastName
+        } from fitness data`
+      );
+      let healthScore = await healthScoreServiceClient.getHealthScore(data);
+
+      console.log(
+        `user ${account.firstName} ${
+          account.lastName
+        } has a calculated health score of ${healthScore}`
+      );
+      console.log(
+        `posting ${account.firstName} ${
+          account.lastName
+        }'s data to data-service`
       );
 
-      console.log(fitnessDeviceData);
-
-      //   console.log(
-      //     `calculating health score for ${account.firstName} ${
-      //       account.lastName
-      //     } from fitness data`
-      //   );
-      //   let healthScore = await healthScoreServiceClient.getHealthScore(
-      //     fitnessDeviceData
-      //   );
-
-      //   console.log(
-      //     `user ${account.firstName} ${
-      //       account.lastName
-      //     } has a calculated health score of ${healthScore}`
-      //   );
-      //   console.log(
-      //     `posting ${account.firstName} ${
-      //       account.lastName
-      //     }'s data to data-service`
-      //   );
-
-      //   await dataServiceClient.updateHealthScore(account, healthScore);
+      await dataServiceClient.updateHealthScore(account, healthScore);
     }
   } catch (error) {
     console.log(error);
