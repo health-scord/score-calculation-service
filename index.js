@@ -19,20 +19,25 @@ const main = async () => {
       console.log("");
       let data = await fitnessDeviceClient.getData(account);
 
-      console.log(data);
+      console.log(JSON.stringify(data));
+
+      console.log("");
 
       console.log(
         `calculating health score for ${account.firstName} ${
           account.lastName
-        } from fitness data`
+        } from device data`
       );
-      let healthScore = await healthScoreServiceClient.getHealthScore(data);
+      let healthScore = await healthScoreServiceClient.calculateHealthScore(
+        data
+      );
 
       console.log(
         `user ${account.firstName} ${
           account.lastName
         } has a calculated health score of ${healthScore}`
       );
+
       console.log(
         `posting ${account.firstName} ${
           account.lastName
@@ -40,6 +45,12 @@ const main = async () => {
       );
 
       await dataServiceClient.updateHealthScore(account, healthScore);
+
+      console.log(
+        `user ${account.firstName} ${
+          account.lastName
+        }'s health score of ${healthScore} was succcessfully updated`
+      );
     }
   } catch (error) {
     console.log(error);
