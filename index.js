@@ -20,6 +20,8 @@ const main = async () => {
       console.log(account);
       let data = await fitnessDeviceClient.getData(account);
 
+      console.log(data);
+
       console.log(
         `calculating health score for ${account.firstName} ${
           account.lastName
