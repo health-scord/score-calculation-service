@@ -16,12 +16,9 @@ const main = async () => {
     console.log(`Fetched ${accounts.length} accounts from data-service:`);
 
     for (let account of accounts) {
-      console.log("");
+      console.log("processing account: ");
+      console.log(account);
       let data = await fitnessDeviceClient.getData(account);
-
-      console.log(JSON.stringify(data, undefined, 4));
-
-      console.log("");
 
       console.log(
         `calculating health score for ${account.firstName} ${
