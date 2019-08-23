@@ -1,5 +1,5 @@
 const defaults = {
-  RUN_INTERVAL: 10000,
+  RUN_INTERVAL: 100000,
   DATA_SERVICE_PORT: `9000`,
   DATA_SERVICE_URI: `data-service`
 };
