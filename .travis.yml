@@ -11,7 +11,7 @@ node_js:
 notifications:
   email:
     - starinje@gmail.com
-  slack: insurance-brainstorm:QQaJALlO74yaAmlya9uOaRkz
+  slack: health-scord:wnICySJUJoRcO0pqA5AtxYOB
 
 before_script:
   - docker build -t score-calculation-service .
