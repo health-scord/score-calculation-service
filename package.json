@@ -20,7 +20,7 @@
     "bluebird": "^3.5.4",
     "express": "^4.16.4",
     "fitbit-node": "^2.2.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "request": "^2.88.0",
     "request-promise": "^4.2.4"
   }
